@@ -30,9 +30,9 @@ Thank you,
 
 Aaron Wilson 
 
-mailto:arwilson@my365.bellevue.edu
+arwilson@my365.bellevue.edu
 
 Follow Team Members contact info:
 
-mailto:jseever@my365.bellevue.edu
-mailto:ltrueworthy@my365.bellevue.edu
+jseever@my365.bellevue.edu
+ltrueworthy@my365.bellevue.edu
