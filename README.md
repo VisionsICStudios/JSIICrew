@@ -8,6 +8,8 @@ Jake Seever - Team Developer
 
 Lea Trueworthy - Team Developer
 
+Richard Krasso - Course Instructor (Professor)
+
 
 Our team goal:
 
