@@ -1,0 +1,28 @@
+{
+  "name": "jsiicrew",
+  "version": "1.0.0",
+  "description": "The JSIICrew Group Project.",
+  "main": "js-trivia-quiz.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VisionsICStudios/JSIICrew.git"
+  },
+  "keywords": [
+    "trivia",
+    "quiz",
+    "group",
+    "project"
+  ],
+  "author": "JSIICrew | Aaron Wilson | Jake Seever | Lea Trueworthy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VisionsICStudios/JSIICrew/issues"
+  },
+  "homepage": "https://github.com/VisionsICStudios/JSIICrew#readme",
+  "dependencies": {
+    "knockout": "^3.5.0"
+  }
+}
