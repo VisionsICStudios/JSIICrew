@@ -6,32 +6,67 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>JSII Crew JavaScript Trivia Quiz</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/main.css" type="text/css">
     </head>
 
-    <body>
-        
-        <script type='text/javascript' src='knockout-3.5.0.js'></script>
+    <body class="container text-center">
+
+        <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.0/knockout-min.js'></script>
 
         <!--[if lt IE 7]>
-        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="https://www.google.com/chrome/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <header>
-            <div class="header-zone">
-
+        <header class="header" >
+            <div class="row col-sm-6" id="header-zone">
+                <h1 class="h1">Welcome to the JSII Crew <br /> JavaScript Trivia Quiz</h1>
             </div>
         </header>
 
+        <!-- The row to change views in later -->
         <section>
-            <div class="main-zone">
 
-            </div>
+          <div id="triviaQuestions">
+            <h3 id="question">Question: <b><span id="questionDisplay">The JavaScript questions will be displayed here.</span></b></h3>
+          </div>
+
+          <div id="main-zone" class="container text-center">
+              <div id="answerPanels">
+                  <div id="row1" class="row">
+                      <div id="panelA" class="panel col-md-6">
+                          <h3 id="A" class="answer">Answer A</h3>
+                      </div>
+                      <div id="panelB" class="panel col-md-6">
+                          <h3 id="B" class="answer">Answer B</h3>
+                      </div>
+                  </div>
+                  <div id="row2" class="row">
+                      <div id="panelC" class="panel col-md-6">
+                          <h3 id="C" class="answer">Answer C</h3>
+                      </div>
+                      <div id="panelD" class="panel col-md-6">
+                          <h3 id="D" class="answer">Answer D</h3>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <div id="questionFeedback" class="container">
+              <div id="feedback" class="row">
+                  <div class="sm-col-6" id="questionFeedback">
+                      <p id="feedback" class="text-center">You answered: <span id="currentAnswer">Correctly/Incorrectly</span></p>
+                  </div>
+                  <div class="sm-col-6" id="userScore">
+                      <p id="score" class="text-center">Score: <span id="currentScore">0</span></p>
+                  </div>
+              </div>
+          </div>
         </section>
-        
+
         <script src="" async defer></script>
     </body>
 </html>
