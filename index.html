@@ -56,13 +56,21 @@
           </div>
 
           <div id="questionFeedback" class="container">
-              <div id="feedback" class="row">
-                  <div class="sm-col-6" id="questionFeedback">
+              <div id="feedback" class="row col-sm-12">
+                  <div class="col-sm-3">
+                      <button type="button" id="leftButton" class="btn btn-primary">Previous Question</button>
+                  </div>
+                  <div class="container col-sm-6">
+                  <div class="col-sm-12" id="questionFeedback">
                       <p id="feedback" class="text-center">You answered: <span id="currentAnswer">Correctly/Incorrectly</span></p>
                   </div>
-                  <div class="sm-col-6" id="userScore">
+                  <div class="col-sm-12" id="userScore">
                       <p id="score" class="text-center">Score: <span id="currentScore">0</span></p>
                   </div>
+                  </div>
+                  <div class="col-sm-3">
+                      <button type="button" id="rightButton" class="btn btn-primary">Next Question</button>
+                   </div>
               </div>
           </div>
         </section>
