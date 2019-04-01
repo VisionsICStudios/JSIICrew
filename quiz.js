@@ -1,3 +1,6 @@
+
+
+
 // ModelView Constructor.
 function QuizViewModel() {
     this.title = "JSIICrew JavaScript Trivia Quiz Prototype";
@@ -27,7 +30,7 @@ function QuizViewModel() {
 // Activates knockout.js.
 ko.applyBindings(new QuizViewModel());
 
-/ Automatic JQuery Statement to let the DOM know is is ready.
+// Automatic JQuery Statement to let the DOM know is is ready.
 $(document).ready(function() {
 
   // Hide all other sections.
