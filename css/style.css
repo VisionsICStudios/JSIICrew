@@ -9,12 +9,12 @@ a {
     color: black;
   }
   
-  .previous {
+  #q1Prev, #q4Next {
     background-color: #f1f1f1;
     color: black;
   }
   
-  .next {
+  .previous, .next {
     background-color: rgb(83, 82, 150);
     color: white;
   }
