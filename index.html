@@ -9,7 +9,7 @@
 ; Date: 26 March 2019
 ; Description: The Milestone 2 - Prototype.
 ;===========================================
-*/   
+*/
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -21,13 +21,7 @@
 
     <!-- JavaScript Libraries -->
 
-     <!-- JQuery -->
-     <script src="jquery-3.3.1.js"></script>
 
-     <!-- Knockout -->
-     <script src="knockout-3.5.0.js"></script>
-
-     <script src="quiz.js"></script>
 
     <!-- AJAX & Popper -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
@@ -113,7 +107,7 @@
           </div>
       </div>
 
-      <script>
+      <!--<script>
 
             // Automatic JQuery Statement to let the DOM know is is ready.
             $(document).ready(function() {
@@ -157,7 +151,7 @@
                 $("#q1, #q2, #q4").hide();
             });
             });
-            
+
             // ModelView Constructor.
             function QuizViewModel() {
                 this.title = "JSIICrew JavaScript Trivia Quiz Prototype";
@@ -185,6 +179,14 @@
 
             // Activates knockout.js.
             ko.applyBindings(new QuizViewModel());
-      </script>
+      </script>->
+
+       <!-- JQuery -->
+     <script src="jquery-3.3.1.js"></script>
+
+     <!-- Knockout -->
+     <script src="knockout-3.5.0.js"></script>
+
+     <script src="quiz.js"></script>
   </body>
 </html>
