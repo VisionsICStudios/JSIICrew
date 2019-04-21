@@ -1,74 +1,94 @@
 
 
 
-// ModelView Constructor.
-function QuizViewModel() {
-    this.title = "JSIICrew JavaScript Trivia Quiz Prototype";
-    this.qOne = "Question One: ";
-    this.q1ChoiceA = "squirrel.log();";
-    this.q1ChoiceB = "header.log();";
-    this.q1ChoiceC = "tab.log();";
-    this.q1ChoiceD = "console.log(); *";
-    this.qTwo = "Question Two: ";
-    this.q2ChoiceA = "=";
-    this.q2ChoiceB = "==";
-    this.q2ChoiceC = "===";
-    this.q2ChoiceD = "Answers B and C *";
-    this.qThree = "Question Three: ";
-    this.q3ChoiceA = "Shuffle statement";
-    this.q3ChoiceB = "Swap statement";
-    this.q3ChoiceC = "Switch statement *";
-    this.q3ChoiceD = "";
-    this.qFour = "Question Four: ";
-    this.q4ChoiceA = "List";
-    this.q4ChoiceB = "Object";
-    this.q4ChoiceC = "Variable";
-    this.q4ChoiceD = "Array *";
+var quizViewModel = function() {
 
-}
+  var self = this;
 
-// Activates knockout.js.
-ko.applyBindings(new QuizViewModel());
+  self.index = ko.observable(0);
 
-// Automatic JQuery Statement to let the DOM know is is ready.
-$(document).ready(function() {
+  self.questions = [
 
-  // Hide all other sections.
-  $("#q2, #q3, #q4").hide();
+    new questionViewModel('What tool can be used to log JavaScript information?', ['squirrel.log();', 'header.log();', 'tab.log();', 'console.log();'], 'console.log();'),
+    new questionViewModel('What operator can be used to compare if two values are equal in JavaScript?', ['== and ===', '==', '===', '='], '== and ==='),
+    new questionViewModel('How can JavaScript test if a case matches and perform an action based on that match?', ['Shuffle Statement', 'Switch Statement', 'Swap Statement', 'If Statement'], 'Switch statement'),
+    new questionViewModel('What object can hold a collection of information in JavaScript?', ['List', 'Database', 'Collector', 'Array'], 'Array'),
+    new questionViewModel('What can be used to iterate over an array?', ['For Loop, ForEach Loop', 'index', 'i', 'iterator'], 'For Loop, ForEach Loop'),
+    new questionViewModel('What property of an array can be used to make sure the whole array is looped over?', ['array.push', 'array.length', 'array.pop', 'array.map'], 'array.length'),
+    new questionViewModel('What is a function that is passed into another function as an argument?', ['callback', 'function expression', 'IIFE', 'parameter'], 'callback'),
+    new questionViewModel('What is it called when an object contains another object?', ['Array', 'Nested Object', 'Collection', 'Object Object'], 'Nested Object'),
+    new questionViewModel('Which operator can be used to check if two values are not equal?', ['null', '||', '=!', '!='], '!='),
+    new questionViewModel('What function can be used to create objects in JavaScript?', ['this.object', 'new Object()', 'Constructor', 'Object Literal'], 'Constructor')
 
-  // Run ths JQuery code when the home button is clicked.
-  $("#q1Next").click(function () {
-    $("#q2").show();
-    $("#q1, #q3, #q4").hide();
-  });
+  ];
 
-  // Run ths JQuery code when the home button is clicked.
-  $("#q2Prev").click(function () {
-    $("#q1").show();
-    $("#q2, #q3, #q4").hide();
-  });
+  self.quizQuestion = ko.observable(self.questions[0]);
 
-  // Run ths JQuery code when the about button is clicked.
-  $("#q2Next").click(function () {
-    $("#q3").show();
-    $("#q1, #q2, #q4").hide();
-  });
+  self.next = function() {
 
-  // Run ths JQuery code when the logo is clicked.
-  $("#q3Prev").click(function () {
-    $("#q2").show();
-    $("#q1, #q3, #q4").hide();
-  });
+    self.index(self.index() + 1);
+    self.quizQuestion(self.questions[self.index()]);
+  }
 
-  // Run ths JQuery code when the portfolio button is clicked.
-  $("#q3Next").click(function () {
-    $("#q4").show();
-    $("#q1, #q2, #q3").hide();
-  });
+  self.previous = function() {
 
-  // Run ths JQuery code when the contact button is clicked.
-  $("#q4Prev").click(function () {
-    $("#q3").show();
-    $("#q1, #q2, #q4").hide();
-  });
-});
+    self.index(self.index() - 1);
+    self.quizQuestion(self.questions[self.index()]);
+  }
+
+    return self;
+};
+
+var answerViewModel = function (answer) {
+
+  this.answer = answer;
+  this.selected = ko.observable(false);
+
+  return this;
+};
+
+var questionViewModel = function(question, answers, correct) {
+
+  var self = this;
+  var i;
+
+  self.question = question;
+
+  self.answers = [];
+
+    for (i = 0; i < answers.length; i++) {
+
+      self.answers.push(new answerViewModel(answers[i]));
+
+    }
+
+  self.correct = correct;
+
+  self.select = function(answer) {
+
+      self.answers.forEach(function(a) { a.selected(false); });
+      answer.selected(true);
+  }
+
+  self.results = [];
+
+  self.checkAnswer = function() {
+
+    if (answers[i].select === correct) {
+
+      self.results.push(answers[i].select);
+
+      return '<i class="fa fa-check-circle fa-lg"> </i>';
+
+    } else {
+
+      return '<i class="fa fa-times-circle fa-lg"> </i>';
+    }
+  }
+
+  self.current = ', you have ' + results.length + ' out of 10 correct.';
+
+  return self;
+};
+
+ko.applyBindings(new quizViewModel());
