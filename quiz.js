@@ -21,7 +21,15 @@ var questionNumber = 1;
 var quizViewModel = function() {
 
 
-  function question(id, question, A, B, C, D, correctAnswer) { // Constructor for question objects.
+  /*var qId = ko.observable();
+  var qQuestion = ko.observable();
+  var qA = ko.observable();
+  var qB = ko.observable();
+  var qC = ko.observable();
+  var qD = ko.observable();
+  var qCorrect = ko.observable(); */
+
+ function question(id, question, A, B, C, D, correctAnswer) { // Constructor for question objects.
     this.id = id;
     this.question = question;
     this.A = a;
@@ -30,6 +38,7 @@ var quizViewModel = function() {
     this.D = d;
     this.correct = correctAnswer;
   }
+
 
     // Parameter q is array of question objects.
     var quiz = ko.observableArray([
@@ -128,8 +137,8 @@ var quizViewModel = function() {
     ]);
 
     for(var i = 0; i < quiz().length; i++){
-      console.log(quiz[i]);
-      if(quiz[i] === questionNumber) {
+      console.log(quiz()[i].id);
+      if(quiz()[i].id === questionNumber) {
         console.log(this.id);
         questionNumber++;
         break;
