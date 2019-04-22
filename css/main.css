@@ -94,3 +94,7 @@ h1{
 #score {
   text-align: center;
 }
+
+.answerSpan {
+  font-size: 2.0em;
+}

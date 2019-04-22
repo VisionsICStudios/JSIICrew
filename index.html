@@ -32,25 +32,29 @@
         <section>
 
           <div id="triviaQuestions">
-            <h3 id="question">Question: <b><span id="questionDisplay">The JavaScript questions will be displayed here.</span></b></h3>
+            <h3 id="question">Question: <b><span id="questionDisplay" data-bind="text: qQuestion"></span></b></h3>
           </div>
 
           <div id="main-zone" class="container text-center">
               <div id="answerPanels">
                   <div id="row1" class="row">
                       <div id="panelA" class="panel col-md-6">
-                          <h3 id="a" class="answer">Answer A</h3>
+                          <h3 id="a" class="answer">Answer A</h3> <br /><br />
+                          <span class="answerSpan" data-bind="text: qA"></span>
                       </div>
                       <div id="panelB" class="panel col-md-6">
-                          <h3 id="b" class="answer">Answer B</h3>
+                          <h3 id="b" class="answer">Answer B</h3> <br /><br />
+                          <span class="answerSpan" data-bind="text: qB"></span>
                       </div>
                   </div>
                   <div id="row2" class="row">
                       <div id="panelC" class="panel col-md-6">
-                          <h3 id="c" class="answer">Answer C</h3>
+                          <h3 id="c" class="answer">Answer C</h3> <br /><br />
+                          <span class="answerSpan" data-bind="text: qC"></span>
                       </div>
                       <div id="panelD" class="panel col-md-6">
-                          <h3 id="d" class="answer">Answer D</h3>
+                          <h3 id="d" class="answer">Answer D</h3><br /><br />
+                          <span class="answerSpan" data-bind="text: qD"></span>
                       </div>
                   </div>
               </div>
@@ -70,7 +74,7 @@
                   </div>
                   </div>
                   <div class="col-sm-3">
-                      <button type="button" id="rightButton" class="btn btn-primary">Next Question</button>
+                      <button onclick="nextQuestion()" type="button" id="rightButton" class="btn btn-primary">Next Question</button>
                    </div>
               </div>
           </div>
@@ -81,12 +85,6 @@
 
         <script src="" async defer>
 
-        var qId = ko.observable();
-var qQuestion = ko.observable();
-var qA = ko.observable();
-var qB = ko.observable();
-var qC = ko.observable();
-var qD = ko.observable();
-var qCorrect = ko.observable();</script>
+</script>
     </body>
 </html>

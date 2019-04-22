@@ -18,25 +18,31 @@
 
 var questionNumber = 1;
 
+function nextQuestion(){
+  questionNumber++;
+
+  new quizViewModel();
+
+}
+
+var qId = ko.observable();
+var qQuestion = ko.observable("");
+var qA = ko.observable();
+var qB = ko.observable();
+var qC = ko.observable();
+var qD = ko.observable();
+var qCorrect = ko.observable();
+
 var quizViewModel = function() {
 
-
-  /*var qId = ko.observable();
-  var qQuestion = ko.observable();
-  var qA = ko.observable();
-  var qB = ko.observable();
-  var qC = ko.observable();
-  var qD = ko.observable();
-  var qCorrect = ko.observable(); */
-
- function question(id, question, A, B, C, D, correctAnswer) { // Constructor for question objects.
+ function question(id, question, A, B, C, D, correct) { // Constructor for question objects.
     this.id = id;
     this.question = question;
     this.A = a;
     this.B = b;
     this.C = c;
     this.D = d;
-    this.correct = correctAnswer;
+    this.correct = correct;
   }
 
 
@@ -136,14 +142,23 @@ var quizViewModel = function() {
         })
     ]);
 
+
     for(var i = 0; i < quiz().length; i++){
-      console.log(quiz()[i].id);
-      if(quiz()[i].id === questionNumber) {
-        console.log(this.id);
-        questionNumber++;
-        break;
+     // console.log(questionNumber);
+      if(quiz()[i].id.id == questionNumber) {
+        this.qID = quiz()[i].id.id;
+        this.qQuestion = quiz()[i].id.question;
+        console.log(this.qQuestion);
+        this.qA = quiz()[i].id.a;
+        this.qB = quiz()[i].id.b;
+        this.qC = quiz()[i].id.c;
+        this.qD = quiz()[i].id.d;
+        this.qCorrect = quiz()[i].id.correct;
+        return this;
+        console.log(this);
       }
     }
 }
+
 
 ko.applyBindings(new quizViewModel());
