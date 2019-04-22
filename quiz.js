@@ -11,117 +11,130 @@
 */
 
 // Create a header variable to point to the location of the header file.
-const header = require('/header.js');
+//const header = require('/header.js');
 
 // Output to the console the header info.
-console.log(`${header.display('Team', 'JSIICrew', 'Assignment 9.4')}\n`);
+// console.log(`${header.display('Team', 'JSIICrew', 'Assignment 9.4')}\n`);
+
+var questionNumber = 1;
 
 var quizViewModel = function() {
 
+
+  function question(id, question, A, B, C, D, correctAnswer) { // Constructor for question objects.
+    this.id = id;
+    this.question = question;
+    this.A = a;
+    this.B = b;
+    this.C = c;
+    this.D = d;
+    this.correct = correctAnswer;
+  }
+
     // Parameter q is array of question objects.
-    this.quiz = observableArray[{
+    var quiz = ko.observableArray([
             //Each object in the q array takes three properties
+       new question( {
+            id: 1,
             question:'What tool can be used to log JavaScript information?',
-            choices: [
-                'squirrel.log();',
-                'header.log();',
-                'tab.log();',
-                'console.log();'
-            ],
+            a:'squirrel.log();',
+            b:'header.log();',
+            c:'tab.log();',
+            d:'console.log();',
             correct: 'console.log();'
-        },
-        {
+        }),
+       new question( {
+            id: 2,
             question:'What operator can be used to compare if two values are equal in JavaScript?',
-            choices: [
-                '== and ===',
-                '==',
-                '===',
-                '='
-            ],
+            a:'== and ===',
+            b:'==',
+            c:'===',
+            d:'=',
             correct: '== and ==='
-        },
-        {
+        }),
+        new question({
+            id: 3,
             question:'How can JavaScript test if a case matches and perform an action based on that match?',
-            choices: [
-                'Shuffle Statement',
-                'Switch Statement',
-                'Swap Statement',
-                'If Statement'
-            ],
+            a:'Shuffle Statement',
+            b:'Switch Statement',
+            c:'Swap Statement',
+            d:'If Statement',
             correct: 'Switch Statement'
 
-        },
-        {
+        }),
+        new question ({
+            id: 4,
             question:'What object can hold a collection of information in JavaScript?',
-            choices: [
-                'List',
-                'Database',
-                'Collector',
-                'Array'
-            ],
+            a:'List',
+            b:'Database',
+            c:'Collector',
+            d:'Array',
             correct: 'Array'
-        },
-        {
+        }),
+        new question({
+            id: 5,
             question:'What can be used to iterate over an array?',
-            choices: [
-                'i',
-                'For Loop, ForEach Loop',
-                'iterator',
-                'index'
-            ],
+            a:'i',
+            b:'For Loop, ForEach Loop',
+            c:'iterator',
+            d:'index',
             correct: 'For Loop, ForEach Loop'
-        },
-        {
+        }),
+        new question({
+            id: 6,
             question:'What property of an array can be used to make sure the whole array is looped over?',
-            choices: [
-                'array.push',
-                'array.pop',
-                'array.map',
-                'array.length'
-            ],
+            a:'array.push',
+            b:'array.pop',
+            c:'array.map',
+            d:'array.length',
             correct: 'array.length'
-        },
-        {
+        }),
+        new question({
+            id: 7,
             question:'What is a function that is passed into another function as an argument?',
-            choices: [
-                'callback',
-                'function expression',
-                'IIFE',
-                'parameter'
-            ],
+            a:'callback',
+            b:'function expression',
+            c:'IIFE',
+            d:'parameter',
             correct: 'callback'
-        },
-        {
+        }),
+        new question({
+            id: 8,
             question:'What is it called when an object contains another object?',
-            choices: [
-                'Array',
-                'Nested Object',
-                'Collection',
-                'Object Object'
-            ],
+            a:'Array',
+            b:'Nested Object',
+            c:'Collection',
+            d:'Object Object',
             correct: 'Nested Object'
-        },
-        {
+        }),
+        new question({
+            id: 9,
             question:'Which operator can be used to check if two values are not equal?',
-            choices: [
-                'null',
-                '||',
-                '=!',
-                '!='
-            ],
+            a:'null',
+            b:'||',
+            c:'=!',
+            d:'!=',
             correct: '!='
-        },
-        {
+        }),
+        new question({
+            id: 10,
             question:'What function can be used to create objects in JavaScript?',
-            choices: [
-                'this.object',
-                'new Object()',
-                'Constructor',
-                'Object Literal'
-            ],
+            a:'this.object',
+            b:'new Object()',
+            c:'Constructor',
+            d:'Object Literal',
             correct: 'Constructor'
-        }
-    ];
+        })
+    ]);
+
+    for(var i = 0; i < quiz().length; i++){
+      console.log(quiz[i]);
+      if(quiz[i] === questionNumber) {
+        console.log(this.id);
+        questionNumber++;
+        break;
+      }
+    }
 }
 
 ko.applyBindings(new quizViewModel());
